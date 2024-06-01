@@ -1,9 +1,16 @@
 import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSun } from "@fortawesome/free-regular-svg-icons";
+
+import Clouds from "./Clouds.jsx";
+import Temperature from "./Temperature.jsx";
+import Miscellaneous from "./Miscellaneous.jsx";
 import "../stylesheet.css";
 
 export default function MainDisplay() {
-  let [queryResult, setQueryResult] = useState();
   let [formValue, setFormValue] = useState("");
+  let [city, setCity] = useState("");
+  let [country, setCountry] = useState("");
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -53,7 +60,14 @@ export default function MainDisplay() {
         />
         <button type="submit">Submit</button>
       </form>
-      <div className="resultDisplay"></div>
+      <div className="resultDisplay">
+        <h2>
+          Current weather for {city}, {country}
+        </h2>
+        <Clouds />
+        <Temperature />
+        <Miscellaneous />
+      </div>
     </main>
   );
 }
