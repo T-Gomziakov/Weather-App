@@ -2,9 +2,7 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSun } from "@fortawesome/free-regular-svg-icons";
 
-import Clouds from "./Clouds.jsx";
-import Temperature from "./Temperature.jsx";
-import Miscellaneous from "./Miscellaneous.jsx";
+import SuccessfulDisplay from "./SuccessfulDisplay";
 import "../stylesheet.css";
 
 export default function MainDisplay() {
@@ -51,7 +49,6 @@ export default function MainDisplay() {
     <main id="mainWindow">
       <h1>Weather App</h1>
       <form className="locationForm" onSubmit={handleSubmit}>
-        <label htmlFor="cityInput">Enter your city:</label>
         <input
           type="text"
           id="cityInput"
@@ -61,12 +58,7 @@ export default function MainDisplay() {
         <button type="submit">Submit</button>
       </form>
       <div className="resultDisplay">
-        <h2>
-          Current weather for {city}, {country}
-        </h2>
-        <Clouds />
-        <Temperature />
-        <Miscellaneous />
+        <SuccessfulDisplay city={city} country={country} />
       </div>
     </main>
   );

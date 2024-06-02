@@ -1,3 +1,3 @@
 export default function Temperature() {
-  return <span className="clouds">Temperature</span>;
+  return <span className="temperature">Temperature</span>;
 }
