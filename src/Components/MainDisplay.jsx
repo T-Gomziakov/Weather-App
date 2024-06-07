@@ -18,12 +18,18 @@ export default function MainDisplay() {
     }`;
     const geoResponse = await fetch(geocodeURL);
     const geoJSON = await geoResponse.json();
-    console.log(geoJSON);
 
-    const geoCity = geoJSON[0]?.name;
-    const geoLat = geoJSON[0]?.lat;
-    const geoLon = geoJSON[0]?.lon;
-    console.log(geoLat + geoCity + geoLon);
+    const geoInfo = geoJSON[0];
+
+    const geoCity = geoInfo?.name;
+    const geoCountry = geoInfo?.country;
+    const geoLat = geoInfo?.lat;
+    const geoLon = geoInfo?.lon;
+
+    setCity(geoCity);
+    setCountry(geoCountry);
+
+    console.log({ geoInfo });
 
     // check for length of the return to debug
 
@@ -38,7 +44,6 @@ export default function MainDisplay() {
 
     const weatherTemp = weatherJSON?.main?.temp;
     const weatherHumidity = weatherJSON?.main?.humidity;
-    console.log(weatherTemp + " " + weatherHumidity);
   }
 
   function handleInput(event) {

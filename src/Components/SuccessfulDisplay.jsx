@@ -1,16 +1,12 @@
-import Clouds from "./Clouds.jsx";
-import Temperature from "./Temperature.jsx";
-import Miscellaneous from "./Miscellaneous.jsx";
-
 export default function SuccessfulDisplay({ city, country }) {
   return (
     <>
       <h2>
         Current weather for {city}, {country}
       </h2>
-      <Clouds />
-      <Temperature />
-      <Miscellaneous />
+      <span className="clouds">Clouds</span>;
+      <span className="temperature">Temperature</span>;
+      <span className="misc">Miscellaneous</span>;
     </>
   );
 }
